@@ -29,12 +29,24 @@ class App extends Component {
   }
 }
 
+function DisplayGoal(goal) {
+  if (goal !== null) {
+    return (<div>Goal: {goal.charAt(0).toUpperCase() + goal.slice(1)}</div>)
+  } else {
+    return (<div>
+      Goal: No goal yet.
+    </div>)
+  }
+}
+
 export class Card extends Component {
   render() {
     return (
       <div className="card-box">
         <h3>{this.props.title} </h3>
-        <h5>Goal: {this.props.goal}</h5>
+        <h5>
+          {DisplayGoal(this.props.goal)}
+        </h5>
         <div>Total Amount of Days: {this.props.days}</div>
         <span>Start Date: {this.props.startDate} </span>
         <span>End Date: {this.props.endDate}</span>
