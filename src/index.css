@@ -44,3 +44,15 @@
 .goal-dropdown-name {
   padding-left: 5px;
 }
+ul.pagination {
+  margin-right: 300px;
+  margin-left: 30px;
+}
+.pagination > .active > a {
+  background-color: grey !important;
+  border-color: grey !important;
+  color: white !important;
+}
+.pagination > li > a {
+  color: grey !important;
+}

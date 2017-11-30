@@ -1,31 +1,50 @@
 import React, { Component } from 'react';
 import './App.css';
+import Pagination from './Pagination';
 import PropTypes from 'prop-types';
 import Dropdown, { DropdownTrigger, DropdownContent } from 'react-simple-dropdown';
 import campaignsData from './campaigns.json';
 
 class App extends Component {
+  constructor() {
+    super();
+
+    var campaigns = {campaignsData};
+    var campaignsArray = [];
+    Object.keys(campaignsData).forEach(function(key) {
+      campaignsArray.push(campaignsData[key])
+      console.log(campaignsArray)
+    });
+
+    this.state = {
+      campaignsArray: campaignsArray,
+      pageOfItems: []
+    };
+
+    this.onChangePage = this.onChangePage.bind(this);
+    }
+
+    onChangePage(pageOfItems) {
+      this.setState({ pageOfItems: pageOfItems });
+    }
+
   render() {
-      var campaigns = {campaignsData};
-      var campaignsArray = [];
-      Object.keys(campaignsData).forEach(function(key) {
-        campaignsArray.push(campaignsData[key])
-      });
       return (
         <div className="container">
           <h1 className="page-heading">Events Analytics </h1>
-          <div className="card-wrapper">{
-            campaignsArray.map(item =>
-              <Card title={item.title} goal={item.goal} days={item.days}
-              startDate={item.start_date} endDate={item.end_date}
-              reach={item.reach} captureRate={item.capture_rate} views={item.views}
-              interactionRate={item.interaction_rate} interactions={item.interactions}
-              leadConversationAmount={item.lead_conversion_amount}
-              leadConversationValueCents={item.lead_conversion_value_cents}
-              salesConversationAmount={item.sales_conversion_amount}
-              salesConversationValueCents={item.sales_conversion_value_cents} />)
+          <div className="card-wrapper">
+            {this.state.pageOfItems.map(item =>
+            <Card title={item.title} goal={item.goal} days={item.days}
+            startDate={item.start_date} endDate={item.end_date}
+            reach={item.reach} captureRate={item.capture_rate} views={item.views}
+            interactionRate={item.interaction_rate} interactions={item.interactions}
+            leadConversationAmount={item.lead_conversion_amount}
+            leadConversationValueCents={item.lead_conversion_value_cents}
+            salesConversationAmount={item.sales_conversion_amount}
+            salesConversationValueCents={item.sales_conversion_value_cents} />)
           }
-          </div>;
+          <Pagination className="page-change-bar" items={this.state.campaignsArray} onChangePage={this.onChangePage} />
+          </div>
         </div>
       );
   }
