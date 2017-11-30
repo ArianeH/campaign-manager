@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
+import PropTypes from 'prop-types';
+import Dropdown, { DropdownTrigger, DropdownContent } from 'react-simple-dropdown';
 import campaignsData from './campaigns.json';
 
 class App extends Component {
@@ -35,6 +37,7 @@ function DisplayGoal(goal) {
   } else {
     return (<div>
       Goal: No goal yet.
+      <GoalSelectionDropdown />
     </div>)
   }
 }
@@ -51,15 +54,58 @@ export class Card extends Component {
         <span>Start Date: {this.props.startDate} </span>
         <span>End Date: {this.props.endDate}</span>
         <div>Reach: {this.props.reach}</div>
-        <div>Capture Rate: {this.props.captureRate}</div>
+        <div>Capture Rate: {parseFloat(this.props.captureRate).toFixed(2)}</div>
         <div>Views: {this.props.views}</div>
-        <div>Interaction Rate: {this.props.interactionRate}</div>
+        <div>Interaction Rate: {parseFloat(this.props.interactionRate).toFixed(2)}</div>
         <div>Interactions: {this.props.interactions}</div>
         <div>Lead Conversation Amount: {this.props.leadConversationAmount}</div>
         <div>Lead Conversation Value Cents: {this.props.leadConversationValueCents}</div>
         <div>Sales Conversation Amount: {this.props.salesConversationAmount}</div>
         <div>Sales Conversation Value Cents: {this.props.salesConversationValueCents}</div>
       </div>
+    );
+  }
+}
+
+export class GoalSelectionDropdown extends Component {
+  constructor (props) {
+    super(props);
+    this.changeGoal = this.changeGoal.bind(this);
+  }
+
+  changeGoal () {
+    this.refs.dropdown.hide()
+  }
+
+  render () {
+    return (
+      <Dropdown className="goal-dropdown" ref="dropdown">
+
+        <DropdownTrigger>
+          <span className="goal-dropdown-name">Select Goal</span>
+        </DropdownTrigger>
+
+        <DropdownContent>
+          <ul className="goal-dropdown-quick-links goal-dropdown-segment">
+            <li className="goal-dropdown-link">
+              <a className="goal-dropdown-link-anchor" onClick={this.changeGoal}>
+                Awareness
+              </a>
+            </li>
+            <li className="goal-dropdown-link">
+              <a className="goal-dropdown-link-anchor" onClick={this.changeGoal}>
+                Consideration
+              </a>
+            </li>
+            <li className="goal-dropdown-link">
+              <a className="goal-dropdown-link-anchor" onClick={this.changeGoal}>
+                Conversion
+              </a>
+            </li>
+          </ul>
+        </DropdownContent>
+
+      </Dropdown>
     );
   }
 }
