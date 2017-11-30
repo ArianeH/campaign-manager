@@ -12,7 +12,7 @@ class App extends Component {
       return (
         <div className="container">
           <h1 className="page-heading">Events Analytics </h1>
-          <div>{
+          <div className="card-wrapper">{
             campaignsArray.map(item =>
               <Card title={item.title} goal={item.goal} days={item.days}
               startDate={item.start_date} endDate={item.end_date}
@@ -32,9 +32,9 @@ class App extends Component {
 export class Card extends Component {
   render() {
     return (
-      <div>
+      <div className="card-box">
         <h3>{this.props.title} </h3>
-        <div>Goal: {this.props.goal}</div>
+        <h5>Goal: {this.props.goal}</h5>
         <div>Total Amount of Days: {this.props.days}</div>
         <span>Start Date: {this.props.startDate} </span>
         <span>End Date: {this.props.endDate}</span>

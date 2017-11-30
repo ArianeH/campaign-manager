@@ -1,5 +1,21 @@
-body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+#root {
+  background-color: #f5f5f5;
+}
+.card-wrapper {
+  display: flex;
+  flex-flow: wrap;
+}
+.card-box {
+  flex: 1 0 400px;
+  height: 400px;
+
+  background-color: #fdfdfd;
+  margin: 30px;
+  padding: 10px;
+  border-radius: 2px;
+  box-shadow: 1px 1px 7px #dcdcdc;
+}
+.page-heading {
+  text-align: center;
+  margin-top: 40px;
 }
