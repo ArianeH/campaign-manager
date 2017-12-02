@@ -8,7 +8,6 @@
 .card-box {
   flex: 1 0 400px;
   height: 400px;
-
   background-color: #fdfdfd;
   margin: 30px;
   padding: 10px;
@@ -20,14 +19,14 @@
   margin-top: 40px;
 }
 .dropdown {
-    display: inline-block;
+  display: inline-block;
 }
 .dropdown__content {
-    display: none;
-    position: absolute;
+  display: none;
+  position: absolute;
 }
 .dropdown--active .dropdown__content {
-    display: block;
+  display: block;
 }
 .goal-dropdown-link {
   list-style: none;

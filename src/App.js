@@ -72,11 +72,22 @@ export class Card extends Component {
         <div>Total Amount of Days: {this.props.days}</div>
         <span>Start Date: {this.props.startDate} </span>
         <span>End Date: {this.props.endDate}</span>
-        <div>Reach: {this.props.reach}</div>
-        <div>Capture Rate: {parseFloat(this.props.captureRate).toFixed(2)}</div>
-        <div>Views: {this.props.views}</div>
-        <div>Interaction Rate: {parseFloat(this.props.interactionRate).toFixed(2)}</div>
-        <div>Interactions: {this.props.interactions}</div>
+
+        <div className="bar-diagram">
+        <dd className={"result result-" + ((parseFloat(this.props.reach))/1000).toFixed(0)}>
+        {console.log(((parseFloat(this.props.reach))/10000))}
+        <span className="text">Reach: {this.props.reach}</span>
+        </dd>
+        <dd className={"result result-" + ((parseFloat(this.props.views))/1000).toFixed(0)} >
+        <span className="text">Views: {this.props.views}</span>
+        <span className="capture-rate">Capture Rate: {parseFloat(this.props.captureRate).toFixed(2)}%</span>
+        </dd>
+        <dd className={"result result-" + ((parseFloat(this.props.interactions))/1000).toFixed(0)}>
+        <span className="text">Interactions: {this.props.interactions}</span>
+        <div className="interaction-rate">Interaction Rate: {parseFloat(this.props.interactionRate).toFixed(2)}%</div>
+        </dd>
+        </div>
+
         <div>Lead Conversation Amount: {this.props.leadConversationAmount}</div>
         <div>Lead Conversation Value Cents: {this.props.leadConversationValueCents}</div>
         <div>Sales Conversation Amount: {this.props.salesConversationAmount}</div>
