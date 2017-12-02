@@ -6,10 +6,10 @@ export class Card extends Component {
     return (
       <div className="card-box">
         <h3>{this.props.title} </h3>
-        <h5>
+        {DisplayTime(this.props.days, this.props.startDate, this.props.endDate)}
+        <h5 className="goal-info">
           {DisplayGoal(this.props.goal)}
         </h5>
-        {DisplayTime(this.props.days, this.props.startDate, this.props.endDate)}
         {DisplayResults(this.props.reach, this.props.views, this.props.captureRate, this.props.interactions, this.props.interactionRate)}
         {DisplayConversion(this.props.leadConversionAmount, this.props.leadConversionValueCents, this.props.salesConversionAmount, this.props.salesConversionValueCents)}
       </div>
@@ -30,11 +30,13 @@ function DisplayGoal(goal) {
 function DisplayTime(days, startDate, endDate) {
   if ((days !== null) && (startDate !== null) && (endDate !== null)) {
     return (
-      <p>
-      <span className="time-component">{days} Days</span>
-      <span className="time-component">Start Date: {startDate}</span>
-      <span>End Date: {endDate}</span>
-      </p>
+      <div>
+        <span className="time-component">{days} Days</span>
+        <span className="time-label">Start</span>
+        <span className="time-component">{startDate}</span>
+        <span className="time-label">End</span>
+        <span className="time-component">{endDate}</span>
+      </div>
     )
   }
 }
@@ -68,14 +70,26 @@ function DisplayConversion(leadConversionAmount, leadConversionValueCents, sales
     return (
       <div>
         <div className="lead-conversion">
-          <p>Lead Conversion</p>
-          <span className="conversion-amount">Amount: {leadConversionAmount}</span>
-          <span>Value Cents: {leadConversionValueCents}</span>
+          <span className="lead-conversion-title">Lead Conversion</span>
+          <span className="conversion-box">
+            <div className="conversion-lable">Amount</div>
+            <div className="conversion-amount">{leadConversionAmount}</div>
+          </span>
+          <span className="conversion-box">
+            <div className="conversion-lable">Value Cents</div>
+            <div className="conversion-amount">{leadConversionValueCents}</div>
+          </span>
         </div>
-        <div>
-          <p>Sales Conversion</p>
-          <span className="conversion-amount">Amount: {salesConversionAmount}</span>
-          <span>Value Cents: {salesConversionValueCents}</span>
+        <div className="sales-conversion">
+          <span className="sales-conversion-title">Sales Conversion</span>
+          <span className="conversion-box">
+            <div className="conversion-lable">Amount</div>
+            <div className="conversion-amount">{salesConversionAmount}</div>
+          </span>
+          <span className="conversion-box">
+            <div className="conversion-lable">Value Cents</div>
+            <div className="conversion-amount">{salesConversionValueCents}</div>
+          </span>
         </div>
       </div>
     )
