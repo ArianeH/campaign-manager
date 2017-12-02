@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.scss';
+import Card from './Card.js';
 import Pagination from './Pagination';
 import PropTypes from 'prop-types';
 import Dropdown, { DropdownTrigger, DropdownContent } from 'react-simple-dropdown';
@@ -31,7 +32,7 @@ class App extends Component {
   render() {
       return (
         <div className="container">
-          <h1 className="page-heading">Events Analytics </h1>
+          <h1 className="page-heading">Event Analytics </h1>
           <div className="card-wrapper">
             {this.state.pageOfItems.map(item =>
             <Card title={item.title} goal={item.goal} days={item.days}
@@ -50,94 +51,47 @@ class App extends Component {
   }
 }
 
-function DisplayGoal(goal) {
-  if (goal !== null) {
-    return (<div>Goal: {goal.charAt(0).toUpperCase() + goal.slice(1)}</div>)
-  } else {
-    return (<div>
-      Goal: No goal yet.
-      <GoalSelectionDropdown />
-    </div>)
-  }
-}
+// export class GoalSelectionDropdown extends Component {
+//   constructor (props) {
+//     super(props);
+//     this.changeGoal = this.changeGoal.bind(this);
+//   }
 
-export class Card extends Component {
-  render() {
-    return (
-      <div className="card-box">
-        <h3>{this.props.title} </h3>
-        <h5>
-          {DisplayGoal(this.props.goal)}
-        </h5>
-        <div>Total Amount of Days: {this.props.days}</div>
-        <span>Start Date: {this.props.startDate} </span>
-        <span>End Date: {this.props.endDate}</span>
+//   changeGoal () {
+//     this.refs.dropdown.hide()
+//   }
 
-        <div className="bar-diagram">
-        <dd className={"result result-" + ((parseFloat(this.props.reach))/1000).toFixed(0)}>
-        {console.log(((parseFloat(this.props.reach))/10000))}
-        <span className="text">Reach: {this.props.reach}</span>
-        </dd>
-        <dd className={"result result-" + ((parseFloat(this.props.views))/1000).toFixed(0)} >
-        <span className="text">Views: {this.props.views}</span>
-        <span className="capture-rate">Capture Rate: {parseFloat(this.props.captureRate).toFixed(2)}%</span>
-        </dd>
-        <dd className={"result result-" + ((parseFloat(this.props.interactions))/1000).toFixed(0)}>
-        <span className="text">Interactions: {this.props.interactions}</span>
-        <div className="interaction-rate">Interaction Rate: {parseFloat(this.props.interactionRate).toFixed(2)}%</div>
-        </dd>
-        </div>
+//   render () {
+//     return (
+//       <Dropdown className="goal-dropdown" ref="dropdown">
 
-        <div>Lead Conversation Amount: {this.props.leadConversationAmount}</div>
-        <div>Lead Conversation Value Cents: {this.props.leadConversationValueCents}</div>
-        <div>Sales Conversation Amount: {this.props.salesConversationAmount}</div>
-        <div>Sales Conversation Value Cents: {this.props.salesConversationValueCents}</div>
-      </div>
-    );
-  }
-}
+//         <DropdownTrigger>
+//           <span className="goal-dropdown-name">Select Goal</span>
+//         </DropdownTrigger>
 
-export class GoalSelectionDropdown extends Component {
-  constructor (props) {
-    super(props);
-    this.changeGoal = this.changeGoal.bind(this);
-  }
+//         <DropdownContent>
+//           <ul className="goal-dropdown-quick-links goal-dropdown-segment">
+//             <li className="goal-dropdown-link">
+//               <a className="goal-dropdown-link-anchor" onClick={this.changeGoal}>
+//                 Awareness
+//               </a>
+//             </li>
+//             <li className="goal-dropdown-link">
+//               <a className="goal-dropdown-link-anchor" onClick={this.changeGoal}>
+//                 Consideration
+//               </a>
+//             </li>
+//             <li className="goal-dropdown-link">
+//               <a className="goal-dropdown-link-anchor" onClick={this.changeGoal}>
+//                 Conversion
+//               </a>
+//             </li>
+//           </ul>
+//         </DropdownContent>
 
-  changeGoal () {
-    this.refs.dropdown.hide()
-  }
-
-  render () {
-    return (
-      <Dropdown className="goal-dropdown" ref="dropdown">
-
-        <DropdownTrigger>
-          <span className="goal-dropdown-name">Select Goal</span>
-        </DropdownTrigger>
-
-        <DropdownContent>
-          <ul className="goal-dropdown-quick-links goal-dropdown-segment">
-            <li className="goal-dropdown-link">
-              <a className="goal-dropdown-link-anchor" onClick={this.changeGoal}>
-                Awareness
-              </a>
-            </li>
-            <li className="goal-dropdown-link">
-              <a className="goal-dropdown-link-anchor" onClick={this.changeGoal}>
-                Consideration
-              </a>
-            </li>
-            <li className="goal-dropdown-link">
-              <a className="goal-dropdown-link-anchor" onClick={this.changeGoal}>
-                Conversion
-              </a>
-            </li>
-          </ul>
-        </DropdownContent>
-
-      </Dropdown>
-    );
-  }
-}
+//       </Dropdown>
+//     );
+//   }
+// }
 
 export default App;
