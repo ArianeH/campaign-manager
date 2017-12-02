@@ -14,7 +14,6 @@ class App extends Component {
     var campaignsArray = [];
     Object.keys(campaignsData).forEach(function(key) {
       campaignsArray.push(campaignsData[key])
-      console.log(campaignsArray)
     });
 
     this.state = {

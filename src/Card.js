@@ -11,10 +11,7 @@ export class Card extends Component {
         </h5>
         {DisplayTime(this.props.days, this.props.startDate, this.props.endDate)}
         {DisplayResults(this.props.reach, this.props.views, this.props.captureRate, this.props.interactions, this.props.interactionRate)}
-        <div>Lead Conversion Amount: {this.props.leadConversionAmount}</div>
-        <div>Lead Conversion Value Cents: {this.props.leadConversionValueCents}</div>
-        <div>Sales Conversion Amount: {this.props.salesConversionAmount}</div>
-        <div>Sales Conversion Value Cents: {this.props.salesConversionValueCents}</div>
+        {DisplayConversion(this.props.leadConversionAmount, this.props.leadConversionValueCents, this.props.salesConversionAmount, this.props.salesConversionValueCents)}
       </div>
     );
   }
@@ -34,34 +31,54 @@ function DisplayTime(days, startDate, endDate) {
   if ((days !== null) && (startDate !== null) && (endDate !== null)) {
     return (
       <p>
-      <div>Total Amount of Days: {days}</div>
-      <span className="start-date">Start Date: {startDate}</span>
+      <span className="time-component">{days} Days</span>
+      <span className="time-component">Start Date: {startDate}</span>
       <span>End Date: {endDate}</span>
       </p>
-      )
+    )
   }
 }
 
 function DisplayResults(reach, views, captureRate, interactions, interactionRate) {
   if ((reach > 0) && (views > 0) && (captureRate > 0) && (interactions > 0) && (interactionRate > 0)) {
     return (
-        <div className="bar-diagram">
+      <div className="bar-diagram">
         <dd className={"result result-" + ((parseFloat(reach))/1000).toFixed(0)}>
-        <span className="text">Reach: {reach}</span>
+          <span className="text">Reach: {reach}</span>
         </dd>
         <dd className={"result result-" + ((parseFloat(views))/1000).toFixed(0)} >
-        <span className="text">Views: {views}</span>
-        <span className="capture-rate">Capture Rate: {parseFloat(captureRate).toFixed(2)}%</span>
+          <span className="text">Views: {views}</span>
+          <span className="capture-rate">Capture Rate: {parseFloat(captureRate).toFixed(2)}%</span>
         </dd>
         <dd className={"result result-" + ((parseFloat(interactions))/1000).toFixed(0)}>
-        <span className="text">Interactions: {interactions}</span>
-        <div className="interaction-rate">Interaction Rate: {parseFloat(interactionRate).toFixed(2)}%</div>
+          <span className="text">Interactions: {interactions}</span>
+          <div className="interaction-rate">Interaction Rate: {parseFloat(interactionRate).toFixed(2)}%</div>
         </dd>
-        </div>
-      )
+      </div>
+    )
   } else {
     return (
-      <div className="no-data-info">No data yet.</div>)
+      <div className="no-data-info">No data yet.</div>
+    )
+  }
+}
+
+function DisplayConversion(leadConversionAmount, leadConversionValueCents, salesConversionAmount, salesConversionValueCents) {
+  if ((leadConversionAmount > 0) && (leadConversionValueCents > 0) && (salesConversionAmount > 0) && (salesConversionValueCents > 0)) {
+    return (
+      <div>
+        <div className="lead-conversion">
+          <p>Lead Conversion</p>
+          <span className="conversion-amount">Amount: {leadConversionAmount}</span>
+          <span>Value Cents: {leadConversionValueCents}</span>
+        </div>
+        <div>
+          <p>Sales Conversion</p>
+          <span className="conversion-amount">Amount: {salesConversionAmount}</span>
+          <span>Value Cents: {salesConversionValueCents}</span>
+        </div>
+      </div>
+    )
   }
 }
 

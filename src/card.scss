@@ -6,8 +6,8 @@
   font-family: 'Hind', sans-serif;
   text-transform: uppercase;
   flex: 1 0 400px;
-  height: 460px;
-  min-width: 420px;
+  height: 480px;
+  min-width: 440px;
   max-width: 500px;
   // background-color: #fdfdfd;
   background-color: #fafafa;
@@ -19,42 +19,50 @@
     margin-right: 50px;
     height: 60px;
   }
-  .start-date {
+  .time-component {
     margin-right: 20px;
   }
   .no-data-info {
     font-size: 25px;
     margin: 67px 0px;
   }
+  .lead-conversion {
+    margin-bottom: 20px;
+  }
+  .conversion-amount {
+    margin-right: 50px;
+  }
   .bar-diagram {
     display: flex;
     flex-direction: column;
     width: 100%;
-    max-width: 280px;
+    min-width: 320px;
+    max-width: 320px;
     position: relative;
     padding: 20px;
     .capture-rate, .interaction-rate {
-      font-size: 11px;
+      font-size: 12px;
       right: 0;
-      margin-right: -100px;
+      margin-right: -80px;
+      width: 150px;
     }
     .text {
       left: 0;
+      width: 110px;
     }
     .text, .capture-rate, .interaction-rate {
       display: flex;
       align-items: center;
       height: 50px;
-      width: 130px;
       position: absolute;
       justify-content: flex-end;
     }
     .result {
-      font-size: 14px;
+      font-size: 12px;
       line-height: 1;
       width: 100%;
       height: 40px;
-      margin-left: 130px;
+      margin-left: 110px;
       background-color: #f1f1f1;
 
       &:after {
