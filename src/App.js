@@ -39,10 +39,10 @@ class App extends Component {
             startDate={item.start_date} endDate={item.end_date}
             reach={item.reach} captureRate={item.capture_rate} views={item.views}
             interactionRate={item.interaction_rate} interactions={item.interactions}
-            leadConversationAmount={item.lead_conversion_amount}
-            leadConversationValueCents={item.lead_conversion_value_cents}
-            salesConversationAmount={item.sales_conversion_amount}
-            salesConversationValueCents={item.sales_conversion_value_cents} />)
+            leadConversionAmount={item.lead_conversion_amount}
+            leadConversionValueCents={item.lead_conversion_value_cents}
+            salesConversionAmount={item.sales_conversion_amount}
+            salesConversionValueCents={item.sales_conversion_value_cents} />)
           }
           <Pagination className="page-change-bar" items={this.state.campaignsArray} onChangePage={this.onChangePage} />
           </div>

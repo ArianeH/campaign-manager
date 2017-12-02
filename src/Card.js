@@ -11,10 +11,10 @@ export class Card extends Component {
         </h5>
         {DisplayTime(this.props.days, this.props.startDate, this.props.endDate)}
         {DisplayResults(this.props.reach, this.props.views, this.props.captureRate, this.props.interactions, this.props.interactionRate)}
-        <div>Lead Conversation Amount: {this.props.leadConversationAmount}</div>
-        <div>Lead Conversation Value Cents: {this.props.leadConversationValueCents}</div>
-        <div>Sales Conversation Amount: {this.props.salesConversationAmount}</div>
-        <div>Sales Conversation Value Cents: {this.props.salesConversationValueCents}</div>
+        <div>Lead Conversion Amount: {this.props.leadConversionAmount}</div>
+        <div>Lead Conversion Value Cents: {this.props.leadConversionValueCents}</div>
+        <div>Sales Conversion Amount: {this.props.salesConversionAmount}</div>
+        <div>Sales Conversion Value Cents: {this.props.salesConversionValueCents}</div>
       </div>
     );
   }
@@ -43,7 +43,7 @@ function DisplayTime(days, startDate, endDate) {
 }
 
 function DisplayResults(reach, views, captureRate, interactions, interactionRate) {
-  if ((reach !== null) && (views !== null) && (captureRate !== null) && (interactions !== null) && (interactionRate !== null)) {
+  if ((reach > 0) && (views > 0) && (captureRate > 0) && (interactions > 0) && (interactionRate > 0)) {
     return (
         <div className="bar-diagram">
         <dd className={"result result-" + ((parseFloat(reach))/1000).toFixed(0)}>
@@ -59,6 +59,9 @@ function DisplayResults(reach, views, captureRate, interactions, interactionRate
         </dd>
         </div>
       )
+  } else {
+    return (
+      <div className="no-data-info">No data yet.</div>)
   }
 }
 
