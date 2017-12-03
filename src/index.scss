@@ -15,8 +15,9 @@
   margin-top: 40px;
 }
 ul.pagination {
-  margin-right: 300px;
-  margin-left: 48px;
+  margin-top: 30px;
+  margin-left: 50%;
+  transform: translate(-50%, -50%);
 }
 .pagination > .active > a {
   background-color: #616161 !important;
