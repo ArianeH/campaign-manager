@@ -19,10 +19,17 @@ export class Card extends Component {
 
 function DisplayGoal(goal) {
   if (goal !== null) {
-    return (<div>Goal: {goal.charAt(0).toUpperCase() + goal.slice(1)}</div>)
+    return (<div>Goal: {goal}</div>)
   } else {
     return (<div>
-      Goal: No goal yet.
+      <span>Goal: </span><span>No goal assigned yet.</span>
+      <select className="goal-selection-menu">
+      <option selected disabled class="hide-option">Select Goal</option>
+        <option value="awareness">Awareness</option>
+        <option value="considerations">Consideration</option>
+        <option value="conversions">Conversions</option>
+      </select>
+      <a className="submit-btn">Submit</a>
     </div>)
   }
 }

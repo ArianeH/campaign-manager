@@ -43,54 +43,11 @@ class App extends Component {
             salesConversionAmount={item.sales_conversion_amount}
             salesConversionValueCents={item.sales_conversion_value_cents} />)
           }
-          <Pagination className="page-change-bar" items={this.state.campaignsArray} onChangePage={this.onChangePage} />
           </div>
+          <Pagination className="page-change-bar" items={this.state.campaignsArray} onChangePage={this.onChangePage} />
         </div>
       );
   }
 }
-
-// export class GoalSelectionDropdown extends Component {
-//   constructor (props) {
-//     super(props);
-//     this.changeGoal = this.changeGoal.bind(this);
-//   }
-
-//   changeGoal () {
-//     this.refs.dropdown.hide()
-//   }
-
-//   render () {
-//     return (
-//       <Dropdown className="goal-dropdown" ref="dropdown">
-
-//         <DropdownTrigger>
-//           <span className="goal-dropdown-name">Select Goal</span>
-//         </DropdownTrigger>
-
-//         <DropdownContent>
-//           <ul className="goal-dropdown-quick-links goal-dropdown-segment">
-//             <li className="goal-dropdown-link">
-//               <a className="goal-dropdown-link-anchor" onClick={this.changeGoal}>
-//                 Awareness
-//               </a>
-//             </li>
-//             <li className="goal-dropdown-link">
-//               <a className="goal-dropdown-link-anchor" onClick={this.changeGoal}>
-//                 Consideration
-//               </a>
-//             </li>
-//             <li className="goal-dropdown-link">
-//               <a className="goal-dropdown-link-anchor" onClick={this.changeGoal}>
-//                 Conversion
-//               </a>
-//             </li>
-//           </ul>
-//         </DropdownContent>
-
-//       </Dropdown>
-//     );
-//   }
-// }
 
 export default App;

@@ -1,21 +1,21 @@
 .card-wrapper {
   display: flex;
+  justify-content: space-around;
   flex-flow: wrap;
 }
 .card-box {
   font-family: 'Hind', sans-serif;
   text-transform: uppercase;
-  flex: 1 0 400px;
+  flex: 1 0 450px;
   height: 520px;
-  min-width: 440px;
-  max-width: 500px;
+  max-width: 580px;
   background-color: #fafafa;
-  margin: 30px;
+  margin: 20px;
   padding: 20px;
   border-radius: 2px;
   h3 {
     font-size: 24px;
-    margin-right: 50px;
+    margin-right: 70px;
     height: 60px;
   }
   .goal-info {
@@ -23,12 +23,28 @@
     line-height: 40px;
     font-weight: 400;
   }
+  .goal-selection-menu {
+    background-color: #f3f2f2;
+    border: #dadada 1px solid;
+    border-radius: 3px;
+    margin: 0px 20px;
+  }
+  .submit-btn:hover {
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .hide-option {
+    display:none;
+    visibility:hidden;
+    height:0;
+    font-size:0;
+  }
   .time-label {
-    font-size: 13px;
+    font-size: 14px;
     margin-right: 5px;
   }
   .time-component {
-    margin-right: 20px;
+    margin-right: 25px;
     background-color: #f2f2f1;
     border-radius: 3px;
     padding: 1px 12px 0px 12px;
@@ -55,10 +71,10 @@
     text-align: right;
   }
   .lead-conversion-title {
-    margin-right: 15px;
+    margin-right: 23px;
   }
   .sales-conversion-title {
-    margin-right: 10px;
+    margin-right: 18px;
   }
   .conversion-lable {
     font-weight: 300;
@@ -73,7 +89,7 @@
     position: relative;
     padding: 20px;
     .capture-rate, .interaction-rate {
-      font-size: 13px;
+      font-size: 14px;
       right: 0;
       margin-right: -80px;
       width: 180px;
@@ -89,11 +105,11 @@
       justify-content: flex-end;
     }
     .result {
-      font-size: 13px;
+      font-size: 14px;
       line-height: 1;
       width: 100%;
       height: 40px;
-      margin-left: 110px;
+      margin-left: 120px;
       background-color: #f1f1f1;
 
       &:after {
