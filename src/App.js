@@ -2,15 +2,12 @@ import React, { Component } from 'react';
 import './App.scss';
 import Card from './Card.js';
 import Pagination from './Pagination';
-import PropTypes from 'prop-types';
-import Dropdown, { DropdownTrigger, DropdownContent } from 'react-simple-dropdown';
 import campaignsData from './campaigns.json';
 
 class App extends Component {
   constructor() {
     super();
 
-    var campaigns = {campaignsData};
     var campaignsArray = [];
     Object.keys(campaignsData).forEach(function(key) {
       campaignsArray.push(campaignsData[key])

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import App from './App.js';
 
 export class Card extends Component {
   render() {
