@@ -23,7 +23,7 @@ function DisplayGoal(goal) {
     return (<div>
       <span>Goal: </span><span>No goal assigned yet.</span>
       <select className="goal-selection-menu">
-      <option selected disabled class="hide-option">Select Goal</option>
+      <option selected disabled className="hide-option">Select Goal</option>
         <option value="awareness">Awareness</option>
         <option value="considerations">Consideration</option>
         <option value="conversions">Conversions</option>
