@@ -1,6 +1,9 @@
 #root {
   background-color: #909090;
 }
+.container {
+  width: 100%;
+}
 .page-heading {
   font-size: 40px;
   color: white;
@@ -15,11 +18,11 @@ ul.pagination {
   transform: translate(-50%, -50%);
 }
 .pagination > .active > a {
-  background-color: #616161 !important;
-  border-color: #616161 !important;
-  color: white !important;
+  background-color: #616161;
+  border-color: #616161;
+  color: white;
 }
 .pagination > li > a {
-  color: #616161 !important;
+  color: #616161;
   cursor: pointer;
 }
