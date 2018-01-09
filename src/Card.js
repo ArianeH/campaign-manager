@@ -5,8 +5,8 @@ export class Card extends Component {
     return (
       <div className="card-box">
         <h3>{this.props.title} </h3>
-        {DisplayTotalDays(this.props.days)}
-        {DisplayTime(this.props.startDate, this.props.endDate)}
+          {DisplayTotalDays(this.props.days)}
+          {DisplayTime(this.props.startDate, this.props.endDate)}
         <h5 className="goal-info">
           {DisplayGoal(this.props.goal)}
         </h5>
@@ -49,13 +49,12 @@ function DisplayTotalDays(days) {
 function DisplayTime(startDate, endDate) {
   if ((startDate !== null) && (endDate !== null)) {
     return (
-      <div>
-
+      <span>
         <span className="time-label">Start</span>
         <span className="time-component">{startDate}</span>
         <span className="time-label">End</span>
         <span className="time-component">{endDate}</span>
-      </div>
+      </span>
     )
   }
 }
