@@ -34,7 +34,17 @@ function DisplayGoal(goal) {
 }
 
 function DisplayTime(days, startDate, endDate) {
-  if ((days !== null) && (startDate !== null) && (endDate !== null)) {
+  if ((days == 1) && (startDate !== null) && (endDate !== null)) {
+    return (
+      <div>
+        <span className="time-component">{days} Day</span>
+        <span className="time-label">Start</span>
+        <span className="time-component">{startDate}</span>
+        <span className="time-label">End</span>
+        <span className="time-component">{endDate}</span>
+      </div>
+    )
+  } else if ((days !== null) && (startDate !== null) && (endDate !== null)) {
     return (
       <div>
         <span className="time-component">{days} Days</span>
