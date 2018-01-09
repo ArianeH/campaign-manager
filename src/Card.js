@@ -5,7 +5,8 @@ export class Card extends Component {
     return (
       <div className="card-box">
         <h3>{this.props.title} </h3>
-        {DisplayTime(this.props.days, this.props.startDate, this.props.endDate)}
+        {DisplayTotalDays(this.props.days)}
+        {DisplayTime(this.props.startDate, this.props.endDate)}
         <h5 className="goal-info">
           {DisplayGoal(this.props.goal)}
         </h5>
@@ -23,7 +24,7 @@ function DisplayGoal(goal) {
     return (<div>
       <span>Goal: </span><span>No goal assigned yet.</span>
       <select className="goal-selection-menu">
-      <option selected disabled className="hide-option">Select Goal</option>
+        <option selected disabled className="hide-option">Select Goal</option>
         <option value="awareness">Awareness</option>
         <option value="considerations">Consideration</option>
         <option value="conversions">Conversions</option>
@@ -33,21 +34,23 @@ function DisplayGoal(goal) {
   }
 }
 
-function DisplayTime(days, startDate, endDate) {
-  if ((days == 1) && (startDate !== null) && (endDate !== null)) {
+function DisplayTotalDays(days) {
+  if (days === 1) {
     return (
-      <div>
-        <span className="time-component">{days} Day</span>
-        <span className="time-label">Start</span>
-        <span className="time-component">{startDate}</span>
-        <span className="time-label">End</span>
-        <span className="time-component">{endDate}</span>
-      </div>
+    <span className="time-component">{days} Day</span>
     )
-  } else if ((days !== null) && (startDate !== null) && (endDate !== null)) {
+  } else if (days !== null) {
+    return (
+    <span className="time-component">{days} Days</span>
+    )
+  }
+}
+
+function DisplayTime(startDate, endDate) {
+  if ((startDate !== null) && (endDate !== null)) {
     return (
       <div>
-        <span className="time-component">{days} Days</span>
+
         <span className="time-label">Start</span>
         <span className="time-component">{startDate}</span>
         <span className="time-label">End</span>
