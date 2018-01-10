@@ -1,3 +1,7 @@
+// color variables
+$custom-dark-grey: #616161;
+
+// general settings
 #root {
   background-color: #909090;
 }
@@ -18,11 +22,11 @@ ul.pagination {
   transform: translate(-50%, -50%);
 }
 .pagination > .active > a {
-  background-color: #616161;
-  border-color: #616161;
+  background-color: $custom-dark-grey;
+  border-color: $custom-dark-grey;
   color: white;
 }
 .pagination > li > a {
-  color: #616161;
+  color: $custom-dark-grey;
   cursor: pointer;
 }
