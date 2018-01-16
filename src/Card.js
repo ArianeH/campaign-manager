@@ -21,18 +21,158 @@ function DisplayGoal(goal) {
   if (goal !== null) {
     return (<div>Goal: {goal}</div>)
   } else {
-    return (<div>
-      <span>Goal: </span><span>No goal assigned yet.</span>
-      <select className="goal-selection-menu">
-        <option selected disabled className="hide-option">Select Goal</option>
-        <option value="awareness">Awareness</option>
-        <option value="considerations">Consideration</option>
-        <option value="conversions">Conversions</option>
-      </select>
-      <a className="submit-btn">Submit</a>
-    </div>)
+    // var valueInitialState = getInitialState()
+    return (<div><span>Goal: </span><span>{this.state.value}</span></div>)
   }
+    function change(event) {
+      this.setState({value: event.target.value})
+    }
+
+    return (
+      <div>
+
+        <select className="goal-selection-menu" onChange={this.change} value={this.state.value}>
+          <option selected disabled className="hide-option" value="select">Select Goal</option>
+          <option value="awareness">Awareness</option>
+          <option value="considerations">Consideration</option>
+          <option value="conversions">Conversions</option>
+        </select>
+        <a className="submit-btn">Submit</a>
+
+      </div>
+    );
 }
+
+function getInitialState() {
+  value: 'select'
+}
+
+
+
+// function DisplayGoal(goal) {
+//   if (goal !== null) {
+//     return (<div>Goal: {goal}</div>)
+//   } else {
+
+//     this.state = {
+//       value: '?',
+//       options: [
+//         {
+//           name: 'Select…',
+//           value: null,
+//         },
+//         {
+//           name: 'A',
+//           value: 'a',
+//         },
+//         {
+//           name: 'B',
+//           value: 'b',
+//         },
+//         {
+//           name: 'C',
+//           value: 'c',
+//         },
+//       ],
+//     };
+
+//     // render() {
+//     const createItem = (item, key) =>
+//       <option key={key} value={item.value}>
+//         {item.name}
+//       </option>;
+//     return (
+//       <div>
+//         <select
+//           onChange={event => this.setState({ value: event.target.value })}
+//           value={this.state.value}>
+//           {this.state.options.map(createItem)}
+//         </select>
+//         <h1>Favorite letter: {this.state.value}</h1>
+//       </div>
+//     );
+//   // }
+//   }
+// }
+
+
+// class Select extends Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       value: '?',
+//       options: [
+//         {
+//           name: 'Select…',
+//           value: null,
+//         },
+//         {
+//           name: 'A',
+//           value: 'a',
+//         },
+//         {
+//           name: 'B',
+//           value: 'b',
+//         },
+//         {
+//           name: 'C',
+//           value: 'c',
+//         },
+//       ],
+//     };
+//   }
+//     render() {
+//     const createItem = (item, key) =>
+//       <option key={key} value={item.value}>
+//         {item.name}
+//       </option>;
+//     return (
+//       <div>
+//         <select
+//           onChange={event => this.setState({ value: event.target.value })}
+//           value={this.state.value}>
+//           {this.state.options.map(createItem)}
+//         </select>
+//         <h1>Favorite letter: {this.state.value}</h1>
+//       </div>
+//     );
+//   }
+// }
+
+
+
+
+// var MySelect = React.createClass({
+//      getInitialState: function() {
+//          return {
+//              value: 'select'
+//          }
+//      },
+//      change: function(event){
+//          this.setState({value: event.target.value});
+//      },
+//      render: function(){
+//         return(
+//            <div>
+//                <select id="lang" onChange={this.change} value={this.state.value}>
+//                   <option value="select">Select</option>
+//                   <option value="Java">Java</option>
+//                   <option value="C++">C++</option>
+//                </select>
+//                <p></p>
+//                <p>{this.state.value}</p>
+//            </div>
+//         );
+//      }
+// });
+
+// React.render(<MySelect />, document.body);
+
+
+
+
+
+
 
 function DisplayTotalDays(days) {
   if (days === 1) {
