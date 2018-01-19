@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import DisplayGoal from './DisplayGoal.js';
+import DisplayGoalSection from './DisplayGoalSection.js';
 
 export class Card extends Component {
 
@@ -10,7 +10,7 @@ export class Card extends Component {
           {DisplayTotalDays(this.props.days)}
           {DisplayTime(this.props.startDate, this.props.endDate)}
         <h5 className="goal-info">
-          <DisplayGoal goal={this.props.goal}/>
+          <DisplayGoalSection goal={this.props.goal}/>
         </h5>
         {DisplayResults(this.props.reach, this.props.views, this.props.captureRate, this.props.interactions, this.props.interactionRate)}
         {DisplayConversion(this.props.leadConversionAmount, this.props.leadConversionValueCents, this.props.salesConversionAmount, this.props.salesConversionValueCents)}

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export class DisplayGoal extends Component {
+export class DisplayGoalOptions extends Component {
   constructor() {
     super();
 
@@ -14,11 +14,11 @@ export class DisplayGoal extends Component {
   }
 
   render() {
+
     return (
       <div>
-      <div> {evaluateGoal(this.props.goal)} </div>
 
-      <div><span>Goal: </span><span>{this.state.value}</span></div>
+        <div><span>Goal: </span><span>{this.state.value}</span></div>
 
         <select className="goal-selection-menu" onChange={this.change} value={this.state.value}>
           <option selected disabled className="hide-option" value="select">Select Goal</option>
@@ -33,12 +33,20 @@ export class DisplayGoal extends Component {
 
 }
 
-function evaluateGoal(goal) {
-  if (goal !== null) {
-    return (<div>Goal: {goal}</div>)
-  } else {
-    // TODO
-  }
-}
 
-export default DisplayGoal;
+export default DisplayGoalOptions;
+
+
+
+// if (isLoggedIn) {
+//   button = <LogoutButton onClick={this.handleLogoutClick} />;
+// } else {
+//   button = <LoginButton onClick={this.handleLoginClick} />;
+// }
+
+// return (
+//   <div>
+//     <Greeting isLoggedIn={isLoggedIn} />
+//     {button}
+//   </div>
+// );
