@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import DisplayGoal from './DisplayGoal.js';
 
 export class Card extends Component {
+
   render() {
     return (
       <div className="card-box">
@@ -8,29 +10,12 @@ export class Card extends Component {
           {DisplayTotalDays(this.props.days)}
           {DisplayTime(this.props.startDate, this.props.endDate)}
         <h5 className="goal-info">
-          {DisplayGoal(this.props.goal)}
+          <DisplayGoal goal={this.props.goal}/>
         </h5>
         {DisplayResults(this.props.reach, this.props.views, this.props.captureRate, this.props.interactions, this.props.interactionRate)}
         {DisplayConversion(this.props.leadConversionAmount, this.props.leadConversionValueCents, this.props.salesConversionAmount, this.props.salesConversionValueCents)}
       </div>
     );
-  }
-}
-
-function DisplayGoal(goal) {
-  if (goal !== null) {
-    return (<div>Goal: {goal}</div>)
-  } else {
-    return (<div>
-      <span>Goal: </span><span>No goal assigned yet.</span>
-      <select className="goal-selection-menu">
-        <option selected disabled className="hide-option">Select Goal</option>
-        <option value="awareness">Awareness</option>
-        <option value="considerations">Consideration</option>
-        <option value="conversions">Conversions</option>
-      </select>
-      <a className="submit-btn">Submit</a>
-    </div>)
   }
 }
 
