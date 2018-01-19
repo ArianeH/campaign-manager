@@ -23,10 +23,9 @@ export class DisplayGoal extends Component {
         <select className="goal-selection-menu" onChange={this.change} value={this.state.value}>
           <option selected disabled className="hide-option" value="select">Select Goal</option>
           <option value="awareness">Awareness</option>
-          <option value="considerations">Consideration</option>
+          <option value="consideration">Consideration</option>
           <option value="conversions">Conversions</option>
         </select>
-        <a className="submit-btn">Submit</a>
 
       </div>
     );
@@ -38,11 +37,7 @@ function evaluateGoal(goal) {
   if (goal !== null) {
     return (<div>Goal: {goal}</div>)
   } else {
-
-    function dropdownOption(props) {
-      return <h1>Hello, {props.name}</h1>;
-    }
-
+    // TODO
   }
 }
 
