@@ -14,13 +14,17 @@ export class DisplayGoalSection extends Component {
     this.setState({value: event.target.value})
   }
 
+
   render() {
 
     return (
       <div>
+      { this.props.goal !== null &&
         <div> Goal: {this.props.goal} </div>
-
+      }
+      { this.props.goal == null &&
           <DisplayGoalOptions goal={this.props.goal}/>
+      }
 
       </div>
     );

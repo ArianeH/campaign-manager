@@ -35,18 +35,3 @@ export class DisplayGoalOptions extends Component {
 
 
 export default DisplayGoalOptions;
-
-
-
-// if (isLoggedIn) {
-//   button = <LogoutButton onClick={this.handleLogoutClick} />;
-// } else {
-//   button = <LoginButton onClick={this.handleLoginClick} />;
-// }
-
-// return (
-//   <div>
-//     <Greeting isLoggedIn={isLoggedIn} />
-//     {button}
-//   </div>
-// );
